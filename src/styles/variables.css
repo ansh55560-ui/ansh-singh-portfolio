@@ -1,0 +1,53 @@
+:root {
+  /* Color Palette - Premium Cinematic Dark Navy with Electric Cobalt Blue Accent */
+  --bg-primary: #05070c;
+  --bg-secondary: #090c14;
+  --bg-tertiary: #0e121e;
+  --bg-elevated: #131828;
+  
+  --surface-card: rgba(13, 17, 28, 0.85);
+  --surface-card-hover: rgba(19, 26, 44, 0.95);
+  --surface-glass: rgba(10, 14, 24, 0.7);
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --surface-border-hover: rgba(59, 130, 246, 0.5);
+  --surface-border-glow: rgba(37, 99, 235, 0.25);
+
+  /* Electric Cobalt / Cyan Accent System */
+  --accent-primary: #2563eb;       /* Electric Blue */
+  --accent-secondary: #3b82f6;     /* Bright Cobalt */
+  --accent-light: #60a5fa;         /* Light Sky */
+  --accent-cyan: #06b6d4;          /* Cyan Highlight */
+  --accent-emerald: #10b981;       /* Success / Available */
+  --accent-glow: rgba(37, 99, 235, 0.4);
+  
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
+  --grad-accent-btn: linear-gradient(90deg, #1d4ed8 0%, #2563eb 50%, #3b82f6 100%);
+  --grad-subtle: linear-gradient(180deg, rgba(37, 99, 235, 0.12) 0%, rgba(59, 130, 246, 0.02) 100%);
+  --grad-text: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+  --grad-name: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  --grad-border: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(37, 99, 235, 0.35) 100%);
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Syne', var(--font-sans);
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-script: 'Caveat', 'Brush Script MT', cursive;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --text-inverse: #030712;
+
+  /* Layout */
+  --max-width: 1280px;
+  --header-height: 76px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
