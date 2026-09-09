@@ -9,7 +9,7 @@ export const profile = {
   phone: "+91 90985 31316",
   email: "ansh55560@gmail.com",
   linkedin: "https://www.linkedin.com/in/ansh-singh-thakur",
-  github: "YOUR_GITHUB_URL", // Editable placeholder
+  github: "https://github.com/ansh55560-ui",
   resumeUrl: "YOUR_RESUME_URL", // Editable placeholder
   about: {
     lead: "Full Stack PHP Developer with professional experience developing scalable web applications, custom CMS architectures, and robust e-commerce platforms.",
