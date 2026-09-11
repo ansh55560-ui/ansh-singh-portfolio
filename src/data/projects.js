@@ -5,9 +5,11 @@ export const projects = [
     title: "Gen Alpha",
     type: "Corporate Web Application & Custom CMS",
     status: "Ongoing Project",
+    primaryStatus: "ONGOING",
+    secondaryStatus: null,
     category: "Full Stack (React + PHP API)",
     badgeColor: "#6366f1",
-    featured: true,
+    featured: false,
     description: "A modern corporate web application built with a decoupled architecture: a high-performance React 19 single-page frontend paired with a custom OOP PHP REST API backend. Features protected JWT authentication, dynamic routing, a custom multi-module CMS, and fluid interactive animations.",
     architecture: "Decoupled React 19 SPA + Custom OOP PHP REST API Backend (PDO & Prepared Statements)",
     technologies: [
@@ -41,6 +43,7 @@ export const projects = [
       "Multi-module Content Management",
       "Mobile-First Responsive Layout"
     ],
+    imageUrl: "/genalpha-logo.png",
     imageType: "genalpha",
     liveUrl: "PROJECT_LIVE_URL",
     githubUrl: "PROJECT_GITHUB_URL"
@@ -50,9 +53,11 @@ export const projects = [
     number: "02",
     title: "ShopatBMS",
     type: "Headless E-Commerce Platform",
-    status: "Company Project",
-    category: "Full Stack E-Commerce",
-    badgeColor: "#8b5cf6",
+    status: "Live Website",
+    primaryStatus: "LIVE",
+    secondaryStatus: null,
+    category: "Live Production E-Commerce",
+    badgeColor: "#e11d48",
     featured: true,
     description: "A modern headless e-commerce platform featuring a fully customizable storefront and an extensive dynamic administrative control center. Engineered with PHP, MySQL, JavaScript, and AJAX for seamless shopping and content administration without code changes.",
     architecture: "Modular PHP Architecture + Relational MySQL Database + AJAX Frontend",
@@ -66,7 +71,7 @@ export const projects = [
       "Bootstrap"
     ],
     highlights: [
-      "Dynamic branding options: customizable logo, color theme, typography, homepage sections, and banner layouts without code edits",
+      "Live production e-commerce platform with customizable branding, logo, and theme settings",
       "Complete e-commerce lifecycle: product catalog, inventory tracking, wishlist, shopping cart, customer reviews, and secure checkout",
       "Comprehensive Admin Dashboard: product, category, order, customer, coupon, and banner management with operational analytics",
       "Newsletter subscription module and customer notification systems",
@@ -81,8 +86,9 @@ export const projects = [
       "Secure Checkout Flow",
       "AJAX-Powered Cart Actions"
     ],
+    imageUrl: "/assets/images/shopatbms.png",
     imageType: "shopatbms",
-    liveUrl: "PROJECT_LIVE_URL",
+    liveUrl: "https://www.shopatbms.com/",
     githubUrl: "PROJECT_GITHUB_URL"
   },
   {
@@ -91,6 +97,8 @@ export const projects = [
     title: "Metals Mantra",
     type: "E-Commerce Website",
     status: "Live Website",
+    primaryStatus: "LIVE",
+    secondaryStatus: "Currently Working",
     category: "Live Production E-Commerce",
     badgeColor: "#10b981",
     featured: true,
@@ -119,6 +127,7 @@ export const projects = [
       "Real-time Inventory Tracking",
       "Optimized Asset Delivery"
     ],
+    imageUrl: "/assets/images/metalsmantra.png",
     imageType: "metalsmantra",
     liveUrl: "https://www.metalsmantra.com/",
     githubUrl: "PROJECT_GITHUB_URL"
@@ -128,10 +137,12 @@ export const projects = [
     number: "04",
     title: "Tathshri",
     type: "Event Management Website",
-    status: "Ongoing Project",
-    category: "Full Stack Web & CMS",
-    badgeColor: "#06b6d4",
-    featured: false,
+    status: "Live Website",
+    primaryStatus: "LIVE",
+    secondaryStatus: "Currently Working",
+    category: "Live Production Web & CMS",
+    badgeColor: "#8b5cf6",
+    featured: true,
     description: "A dynamic event management web platform designed to showcase event portfolios, manage event listings, curate media galleries, and handle client inquiries through a custom CMS-driven admin dashboard.",
     architecture: "PHP & MySQL Web Application with Custom CMS Backend",
     technologies: [
@@ -143,7 +154,7 @@ export const projects = [
       "Bootstrap"
     ],
     highlights: [
-      "Event listing and detailed showcase modules with dynamic date and category filtering",
+      "Live production event platform with interactive portfolios and dynamic date/category filtering",
       "Gallery Management System for organizing event photography, client albums, and media assets",
       "Contact & Inquiry Module facilitating client event bookings and direct lead capture",
       "CMS-based Admin Panel empowering non-technical staff to update event details and site content",
@@ -157,8 +168,9 @@ export const projects = [
       "SEO-Friendly Markup",
       "Mobile-Optimized Layouts"
     ],
+    imageUrl: "/assets/images/tathshri.png",
     imageType: "tathshri",
-    liveUrl: "PROJECT_LIVE_URL",
+    liveUrl: "https://www.tathshri.in/",
     githubUrl: "PROJECT_GITHUB_URL"
   }
 ];

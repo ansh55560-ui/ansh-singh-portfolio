@@ -1,7 +1,7 @@
 export const experiences = [
   {
-    period: "November 2025 — June 2026",
-    duration: "7 Months",
+    period: "November 2025 — Present",
+    duration: "1 Year",
     role: "Full Stack PHP Developer",
     company: "Clock Softwares",
     type: "Professional Experience",

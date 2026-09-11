@@ -154,17 +154,17 @@ export const currentlyLearning = [
   {
     name: "Python",
     category: "Programming Language",
-    description: "Expanding into backend scripting, automation workflows, and data fundamentals."
+    description: "Backend scripting, automation workflows, and computational fundamentals."
   },
   {
-    name: "React.js Deep Dive",
-    category: "Frontend Architecture",
-    description: "Advanced component architecture, state management patterns, and full-stack React ecosystems."
+    name: "Git & GitHub",
+    category: "Version Control & Collaboration",
+    description: "Advanced branching strategies, collaborative workflows, and CI/CD pipelines."
   },
   {
-    name: "Node.js",
-    category: "Server-side JavaScript",
-    description: "Exploring asynchronous event-driven server runtimes, Express.js APIs, and npm modules."
+    name: "AI Tools",
+    category: "AI & Productivity",
+    description: "AI-assisted development, prompt engineering, and LLM workflow integrations."
   }
 ];
 

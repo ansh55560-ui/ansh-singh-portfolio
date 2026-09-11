@@ -71,24 +71,32 @@ export const Navbar = () => {
           >
             <div
               style={{
-                width: 34,
-                height: 34,
-                borderRadius: '8px',
-                background: 'linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%)',
+                width: 58,
+                height: 58,
+                borderRadius: '50%',
+                overflow: 'hidden',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#fff',
-                fontWeight: 900,
-                fontSize: '0.9375rem',
-                fontFamily: 'var(--font-sans)',
-                boxShadow: '0 4px 14px rgba(37, 99, 235, 0.45)'
+                boxShadow: '0 0 22px rgba(59, 130, 246, 0.7), 0 0 45px rgba(37, 99, 235, 0.35)',
+                border: '2px solid rgba(59, 130, 246, 0.8)',
+                backgroundColor: '#05070c',
+                flexShrink: 0
               }}
             >
-              AS
+              <img
+                src="/assets/images/logo.png"
+                alt="Ansh Singh Logo"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.08)' }}
+              />
             </div>
-            <div style={{ fontWeight: 800, fontSize: '0.9375rem', letterSpacing: '0.06em', color: '#ffffff', textTransform: 'uppercase' }}>
-              ANSH SINGH
+            <div>
+              <div style={{ fontWeight: 800, fontSize: '1.05rem', letterSpacing: '0.05em', color: '#ffffff', textTransform: 'uppercase', lineHeight: 1.15 }}>
+                ANSH SINGH
+              </div>
+              <div style={{ fontSize: '0.6875rem', fontFamily: 'var(--font-mono)', color: '#38bdf8', letterSpacing: '0.06em', marginTop: '2px' }}>
+                FULL STACK DEVELOPER
+              </div>
             </div>
           </button>
 

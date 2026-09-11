@@ -7,33 +7,68 @@ export const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    website: '' // Honeypot field for spam bots
   });
 
   const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
   const [errorMessage, setErrorMessage] = useState('');
+  const [lastSubmittedAt, setLastSubmittedAt] = useState(0);
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+    // Length boundary caps
+    const maxLengths = { name: 100, email: 254, message: 2000, website: 100 };
+    const limit = maxLengths[name] || 500;
+
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [name]: value.slice(0, limit)
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+    // Honeypot check: If bot filled the hidden website field, silently succeed without processing
+    if (formData.website) {
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '', website: '' });
+      return;
+    }
+
+    // Rate limiting cooldown (5 seconds between submissions)
+    const now = Date.now();
+    if (now - lastSubmittedAt < 5000) {
       setStatus('error');
-      setErrorMessage('Please fill in all fields.');
+      setErrorMessage('Please wait a few seconds before sending another message.');
+      return;
+    }
+
+    const trimmedName = formData.name.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedMessage = formData.message.trim();
+
+    if (!trimmedName || !trimmedEmail || !trimmedMessage) {
+      setStatus('error');
+      setErrorMessage('Please fill in all required fields.');
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (!emailRegex.test(trimmedEmail)) {
+      setStatus('error');
+      setErrorMessage('Please provide a valid email address.');
       return;
     }
 
     setStatus('submitting');
     setErrorMessage('');
+    setLastSubmittedAt(now);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1200));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       try {
         confetti({
@@ -44,7 +79,7 @@ export const ContactForm = () => {
       } catch (err) {}
 
       setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', message: '', website: '' });
     } catch (error) {
       setStatus('error');
       setErrorMessage('Something went wrong. Please try emailing directly.');
@@ -53,12 +88,25 @@ export const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      {/* Hidden Honeypot Field for anti-bot protection */}
+      <div style={{ display: 'none', position: 'absolute', left: '-9999px' }} aria-hidden="true">
+        <input
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          value={formData.website}
+          onChange={handleChange}
+        />
+      </div>
+
       {/* 2-Column Name & Email */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.85rem' }}>
         <input
           type="text"
           name="name"
           required
+          maxLength={100}
           value={formData.name}
           onChange={handleChange}
           placeholder="Your Name"
@@ -81,6 +129,7 @@ export const ContactForm = () => {
           type="email"
           name="email"
           required
+          maxLength={254}
           value={formData.email}
           onChange={handleChange}
           placeholder="Your Email"
@@ -104,6 +153,7 @@ export const ContactForm = () => {
       <textarea
         name="message"
         required
+        maxLength={2000}
         rows={4}
         value={formData.message}
         onChange={handleChange}

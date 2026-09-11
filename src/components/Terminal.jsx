@@ -10,7 +10,7 @@ const terminalCommands = {
       profile.name,
       profile.role,
       `Location: ${profile.location}`,
-      "Clock Softwares (7 Mo Professional + 3 Mo Internship)"
+      "Clock Softwares (1 Year Professional + 3 Mo Internship)"
     ],
     highlight: "#6366f1"
   },
@@ -28,9 +28,9 @@ const terminalCommands = {
     cmd: "ls -la ~/projects",
     lines: [
       "● Gen Alpha      [Ongoing] Decoupled React 19 + PHP REST API + Custom CMS",
-      "● ShopatBMS      [Company] Headless E-Commerce Platform + Dynamic Admin",
+      "● ShopatBMS      [Live]    Headless E-Commerce (shopatbms.com)",
       "● Metals Mantra  [Live]    Production E-Commerce (metalsmantra.com)",
-      "● Tathshri       [Ongoing] Event Management Website & CMS Module"
+      "● Tathshri       [Live]    Event Management (tathshri.in)"
     ],
     highlight: "#06b6d4"
   },

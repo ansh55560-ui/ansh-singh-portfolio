@@ -8,11 +8,11 @@ export const metrics = [
     highlight: true
   },
   {
-    value: 7,
-    suffix: " Mo",
+    value: 1,
+    suffix: " Year",
     label: "Professional Experience",
     sublabel: "Full Stack at Clock Softwares",
-    description: "Full-time professional role (Nov 2025 – Jun 2026) developing web apps, APIs, and CMS platforms.",
+    description: "Full-time professional role developing scalable web apps, APIs, and CMS platforms.",
     highlight: false
   },
   {

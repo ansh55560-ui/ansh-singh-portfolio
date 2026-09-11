@@ -67,7 +67,7 @@ const techBadges = [
 
 const heroStats = [
   { value: "3+", label: "Live Client\nWebsites" },
-  { value: "7", label: "Months\nProfessional Exp." },
+  { value: "1+", label: "Year\nProfessional Exp." },
   { value: "3", label: "Months\nInternship" },
   { value: "∞", label: "Ideas\nTo Build" }
 ];
@@ -363,20 +363,23 @@ export const HeroSection = () => {
             style={{
               position: 'relative',
               width: '100%',
-              minHeight: 'clamp(480px, 55vh, 620px)',
+              minHeight: 'clamp(560px, 68vh, 740px)',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
-              alignItems: 'center'
+              alignItems: 'center',
+              marginTop: '-1.25rem',
+              paddingBottom: '3.5rem'
             }}
           >
             {/* The Main Portrait Container */}
             <div
+              id="hero-portrait-container"
               style={{
                 position: 'relative',
                 width: '100%',
-                maxWidth: '640px',
-                height: 'clamp(460px, 52vh, 580px)',
+                maxWidth: '680px',
+                height: 'clamp(520px, 60vh, 660px)',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'flex-start'
@@ -386,13 +389,13 @@ export const HeroSection = () => {
               <div
                 style={{
                   position: 'absolute',
-                  top: '35px',
-                  right: '25%',
-                  width: '320px',
-                  height: '320px',
+                  top: '15px',
+                  right: '22%',
+                  width: '360px',
+                  height: '360px',
                   borderRadius: '50%',
                   background: 'radial-gradient(circle, rgba(37, 99, 235, 0.85) 0%, rgba(59, 130, 246, 0.35) 45%, transparent 75%)',
-                  filter: 'blur(32px)',
+                  filter: 'blur(35px)',
                   opacity: 0.9,
                   pointerEvents: 'none',
                   zIndex: 1
@@ -401,104 +404,110 @@ export const HeroSection = () => {
               <div
                 style={{
                   position: 'absolute',
-                  top: '65px',
-                  right: '30%',
-                  width: '200px',
-                  height: '200px',
+                  top: '40px',
+                  right: '28%',
+                  width: '240px',
+                  height: '240px',
                   borderRadius: '50%',
                   background: 'radial-gradient(circle, #38bdf8 0%, rgba(37, 99, 235, 0.75) 50%, transparent 72%)',
-                  filter: 'blur(16px)',
-                  opacity: 0.8,
+                  filter: 'blur(18px)',
+                  opacity: 0.85,
                   pointerEvents: 'none',
                   zIndex: 1
                 }}
               />
 
-              {/* Layer 2: The Portrait Image - 15% Brighter facial illumination, crisp black-and-white, smooth vignette mask */}
-              <img
-                src={heroBwImg}
-                alt="Ansh Singh - Full Stack Developer"
+              {/* Layer 2: The Portrait Image - Professional Natural Clarity */}
+              <div
+                id="hero-portrait-card"
                 style={{
+                  position: 'relative',
                   width: '100%',
-                  maxWidth: '580px',
+                  maxWidth: '560px',
                   height: '100%',
                   maxHeight: '560px',
-                  objectFit: 'contain',
-                  objectPosition: 'center 15%',
-                  transform: 'scale(1.08)',
-                  filter: 'grayscale(100%) contrast(124%) brightness(140%)',
-                  maskImage: 'radial-gradient(ellipse 70% 65% at 52% 48%, black 40%, rgba(0,0,0,0.8) 55%, transparent 75%)',
-                  WebkitMaskImage: 'radial-gradient(ellipse 70% 65% at 52% 48%, black 40%, rgba(0,0,0,0.8) 55%, transparent 75%)',
-                  position: 'relative',
-                  zIndex: 2,
-                  userSelect: 'none'
-                }}
-              />
-
-              {/* Layer 3: Subtle Neon Blue Handwritten Signature 'Ansh Singh' on top-left */}
-              <div
-                className="font-script hero-decorative"
-                style={{
-                  position: 'absolute',
-                  top: '40px',
-                  left: '3%',
-                  fontSize: '2.75rem',
-                  color: '#60a5fa',
-                  transform: 'rotate(-7deg)',
-                  opacity: 0.88,
-                  pointerEvents: 'none',
-                  zIndex: 4,
-                  textShadow: '0 0 14px rgba(59, 130, 246, 0.7), 0 0 25px rgba(37, 99, 235, 0.4)'
+                  borderRadius: '24px',
+                  overflow: 'hidden',
+                  border: '1px solid rgba(59, 130, 246, 0.35)',
+                  boxShadow: '0 25px 60px -12px rgba(0, 0, 0, 0.95), 0 0 35px rgba(37, 99, 235, 0.25), inset 0 1px 1px rgba(255,255,255,0.15)',
+                  zIndex: 2
                 }}
               >
-                Ansh Singh
+                <img
+                  src={heroBwImg}
+                  alt="Ansh Singh - Full Stack Developer"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center 15%',
+                    filter: 'contrast(106%) brightness(102%) saturate(108%)',
+                    userSelect: 'none'
+                  }}
+                />
+
+                {/* Subtle Inner Edge Vignette / Dark Ambient Fade */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to bottom, rgba(5,7,12,0.1) 0%, transparent 35%, rgba(5,7,12,0.4) 75%, rgba(5,7,12,0.85) 100%), linear-gradient(to right, rgba(5,7,12,0.3) 0%, transparent 25%, transparent 75%, rgba(5,7,12,0.3) 100%)',
+                    pointerEvents: 'none'
+                  }}
+                />
               </div>
 
-              {/* Layer 4: Subtle Top-Right Stacked Editorial Annotation */}
+              {/* Layer 4: High-Contrast Editorial Tag with Glass Backdrop */}
               <div
-                className="hero-decorative"
+                className="hero-tag-editorial hero-decorative"
                 style={{
                   position: 'absolute',
-                  top: '25px',
-                  right: '3%',
+                  top: '18px',
+                  right: '18px',
                   textAlign: 'right',
                   fontSize: '0.625rem',
                   fontFamily: 'var(--font-mono)',
-                  color: '#64748b',
-                  letterSpacing: '0.16em',
+                  letterSpacing: '0.14em',
                   lineHeight: 1.45,
                   zIndex: 4,
-                  opacity: 0.75,
+                  background: 'rgba(6, 12, 24, 0.88)',
+                  backdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(59, 130, 246, 0.38)',
+                  padding: '6px 12px',
+                  borderRadius: '8px',
+                  boxShadow: '0 10px 25px rgba(0,0,0,0.8), 0 0 15px rgba(37,99,235,0.2)',
                   textTransform: 'uppercase'
                 }}
               >
-                TURNING<br />
-                IDEAS<br />
-                INTO<br />
-                <strong style={{ color: '#93c5fd', fontWeight: 700 }}>REAL PRODUCTS</strong>
+                <div style={{ color: '#94a3b8' }}>TURNING IDEAS INTO</div>
+                <strong style={{ color: '#38bdf8', fontWeight: 800, textShadow: '0 0 10px rgba(56,189,248,0.5)' }}>REAL PRODUCTS</strong>
               </div>
 
-              {/* Layer 5: Subtle Right Side Cursive Script: Build Learn Improve Repeat with underline */}
+              {/* Layer 5: High-Contrast Cursive Script with Glass Badge */}
               <div
-                className="hero-decorative"
+                className="hero-tag-cursive hero-decorative"
                 style={{
                   position: 'absolute',
-                  top: '30%',
-                  right: '2%',
+                  top: '80px',
+                  right: '18px',
                   textAlign: 'right',
                   zIndex: 4,
-                  opacity: 0.82,
-                  pointerEvents: 'none'
+                  pointerEvents: 'none',
+                  background: 'rgba(6, 12, 24, 0.88)',
+                  backdropFilter: 'blur(14px)',
+                  border: '1px solid rgba(56, 189, 248, 0.38)',
+                  padding: '8px 14px',
+                  borderRadius: '12px',
+                  boxShadow: '0 12px 30px rgba(0,0,0,0.85), 0 0 20px rgba(56, 189, 248, 0.25)'
                 }}
               >
                 <div
                   className="font-script"
                   style={{
-                    fontSize: '1.5rem',
-                    color: '#93c5fd',
-                    transform: 'rotate(5deg)',
-                    lineHeight: 1.15,
-                    textShadow: '0 2px 16px rgba(0,0,0,0.9), 0 0 16px rgba(37, 99, 235, 0.35)'
+                    fontSize: '1.4rem',
+                    color: '#60a5fa',
+                    lineHeight: 1.2,
+                    textShadow: '0 0 14px rgba(59, 130, 246, 0.8)'
                   }}
                 >
                   Build<br />
@@ -506,48 +515,52 @@ export const HeroSection = () => {
                   Improve<br />
                   Repeat
                 </div>
-                <div style={{ width: '55px', height: '1.5px', background: 'linear-gradient(to right, transparent, #38bdf8)', marginLeft: 'auto', marginTop: '4px', transform: 'rotate(5deg)' }} />
+                <div style={{ width: '45px', height: '2px', background: 'linear-gradient(to right, transparent, #38bdf8)', marginLeft: 'auto', marginTop: '5px' }} />
               </div>
 
-              {/* Layer 6: Right Side Slanted Tech Flow Marker with Bracket Lines */}
+              {/* Layer 6: High-Contrast Tech Flow Marker with Glass Badge */}
               <div
+                className="hero-tag-tech hero-decorative"
                 style={{
                   position: 'absolute',
-                  right: '1%',
-                  top: '60%',
+                  right: '18px',
+                  top: '290px',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'flex-end',
-                  gap: '0.2rem',
+                  gap: '0.22rem',
                   fontFamily: 'var(--font-mono)',
-                  fontSize: '0.5625rem',
+                  fontSize: '0.625rem',
+                  fontWeight: 700,
                   letterSpacing: '0.18em',
-                  color: '#64748b',
-                  zIndex: 4,
-                  opacity: 0.65,
-                  borderRight: '1px solid rgba(59, 130, 246, 0.3)',
-                  paddingRight: '0.5rem'
+                  zIndex: 6,
+                  background: 'rgba(6, 12, 24, 0.88)',
+                  backdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(59, 130, 246, 0.38)',
+                  padding: '6px 12px',
+                  borderRadius: '8px',
+                  boxShadow: '0 10px 25px rgba(0,0,0,0.8), 0 0 15px rgba(37,99,235,0.2)'
                 }}
-                className="hero-vertical-tag hero-decorative"
               >
                 <span style={{ color: '#94a3b8' }}>CODE</span>
-                <span>DESIGN</span>
-                <span>DEVELOP</span>
-                <span style={{ color: '#38bdf8' }}>DEPLOY</span>
+                <span style={{ color: '#cbd5e1' }}>DESIGN</span>
+                <span style={{ color: '#60a5fa' }}>DEVELOP</span>
+                <span style={{ color: '#38bdf8', textShadow: '0 0 8px rgba(56,189,248,0.75)' }}>DEPLOY</span>
               </div>
 
-              {/* Layer 7: Translucent Dark Glass Developer Terminal — Enhanced text contrast and border visibility */}
+              {/* Layer 7: Translucent Dark Glass Developer Terminal */}
               <motion.div
+                className="hero-terminal-card"
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.35 }}
                 style={{
                   position: 'absolute',
-                  bottom: '20px',
-                  left: '2%',
+                  bottom: '-70px',
+                  left: '1%',
                   width: '350px',
                   maxWidth: '88%',
-                  background: 'rgba(6, 12, 24, 0.90)',
+                  background: 'rgba(6, 12, 24, 0.94)',
                   backdropFilter: 'blur(20px)',
                   border: '1px solid rgba(59, 130, 246, 0.45)',
                   borderRadius: '12px',
@@ -609,11 +622,12 @@ export const HeroSection = () => {
                 </div>
               </motion.div>
 
-              {/* Layer 8: Quote Callout Box on Bottom-Right */}
+              {/* Layer 8: Quote Callout Box on Bottom-Right — Visible on Desktop and Stacked on Mobile */}
               <div
+                className="hero-quote-card"
                 style={{
                   position: 'absolute',
-                  bottom: '15px',
+                  bottom: '-60px',
                   right: '0%',
                   padding: '0.75rem 1.15rem',
                   borderRadius: '10px',
@@ -639,56 +653,12 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        {/* Bottom Left Scroll Indicator */}
-        <div style={{ marginTop: 'clamp(1rem, 2vh, 1.75rem)', display: 'flex', alignItems: 'center', gap: '1rem', paddingBottom: '0.5rem' }}>
-          <button
-            onClick={() => scrollTo('about')}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.65rem',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.7rem',
-              color: '#64748b',
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              cursor: 'pointer',
-              background: 'none',
-              border: 'none',
-              padding: 0
-            }}
-            aria-label="Scroll to explore"
-          >
-            <div
-              style={{
-                width: 17,
-                height: 26,
-                borderRadius: '11px',
-                border: '1.5px solid rgba(255, 255, 255, 0.25)',
-                display: 'flex',
-                justifyContent: 'center',
-                paddingTop: '3px'
-              }}
-            >
-              <motion.div
-                animate={{ y: [0, 8, 0], opacity: [1, 0.2, 1] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-                style={{ width: 3.5, height: 4.5, borderRadius: '2px', backgroundColor: '#38bdf8' }}
-              />
-            </div>
-            <span>SCROLL TO EXPLORE</span>
-          </button>
-          <div style={{ width: '80px', height: '1px', background: 'linear-gradient(to right, rgba(56, 189, 248, 0.5), transparent)' }} />
-        </div>
       </div>
 
       <style>{`
         @media (min-width: 1024px) {
           #hero-grid-layout {
             grid-template-columns: 1.02fr 1.18fr !important;
-          }
-          .hero-vertical-tag {
-            display: flex !important;
           }
         }
         @media (max-width: 1023px) {
@@ -702,11 +672,78 @@ export const HeroSection = () => {
           }
           #hero-portrait-wrapper {
             order: 2 !important;
-            margin-top: 1.5rem !important;
-            min-height: 480px !important;
+            margin-top: 2rem !important;
+            min-height: auto !important;
+            padding-bottom: 2.5rem !important;
+            width: 100% !important;
+          }
+          #hero-portrait-container {
+            height: auto !important;
+            min-height: auto !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            width: 100% !important;
+          }
+          #hero-portrait-card {
+            height: clamp(340px, 52vh, 480px) !important;
+            width: 100% !important;
+            max-width: 500px !important;
           }
           .hero-decorative {
-            opacity: 0.6 !important;
+            display: flex !important;
+          }
+          .hero-tag-editorial {
+            top: 12px !important;
+            right: 12px !important;
+            padding: 4px 8px !important;
+            font-size: 0.52rem !important;
+            z-index: 6 !important;
+          }
+          .hero-tag-cursive {
+            top: 14px !important;
+            left: 14px !important;
+            right: auto !important;
+            text-align: left !important;
+            padding: 5px 10px !important;
+            z-index: 6 !important;
+          }
+          .hero-tag-cursive .font-script {
+            font-size: 1.05rem !important;
+            text-align: left !important;
+          }
+          .hero-tag-cursive > div:last-child {
+            margin-left: 0 !important;
+            margin-right: auto !important;
+          }
+          .hero-tag-tech {
+            top: 150px !important;
+            right: 12px !important;
+            padding: 5px 10px !important;
+            font-size: 0.52rem !important;
+            z-index: 6 !important;
+          }
+          .hero-terminal-card {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            margin-top: -30px !important;
+            width: 95% !important;
+            max-width: 420px !important;
+            z-index: 10 !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+          }
+          .hero-quote-card {
+            display: flex !important;
+            position: relative !important;
+            bottom: auto !important;
+            right: auto !important;
+            margin-top: 0.85rem !important;
+            width: 95% !important;
+            max-width: 420px !important;
+            z-index: 10 !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
           }
         }
         @media (max-width: 640px) {
@@ -714,8 +751,35 @@ export const HeroSection = () => {
             grid-template-columns: repeat(2, 1fr) !important;
             gap: 0.85rem !important;
           }
-          .hero-decorative {
-            display: none !important;
+          .hero-tag-editorial {
+            top: 10px !important;
+            right: 10px !important;
+            padding: 3px 6px !important;
+            font-size: 0.48rem !important;
+            z-index: 6 !important;
+          }
+          .hero-tag-cursive {
+            top: 12px !important;
+            left: 12px !important;
+            right: auto !important;
+            text-align: left !important;
+            padding: 4px 8px !important;
+            z-index: 6 !important;
+          }
+          .hero-tag-cursive .font-script {
+            font-size: 0.95rem !important;
+            text-align: left !important;
+          }
+          .hero-tag-cursive > div:last-child {
+            margin-left: 0 !important;
+            margin-right: auto !important;
+          }
+          .hero-tag-tech {
+            top: 140px !important;
+            right: 10px !important;
+            padding: 4px 8px !important;
+            font-size: 0.48rem !important;
+            z-index: 6 !important;
           }
         }
       `}</style>

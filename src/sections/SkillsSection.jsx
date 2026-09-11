@@ -162,6 +162,132 @@ export const SkillsSection = () => {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* ALSO EXPLORING Block */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="glass-panel"
+          style={{
+            marginTop: '3rem',
+            padding: 'clamp(1.5rem, 3vw, 2rem)',
+            borderRadius: '16px',
+            background: 'linear-gradient(135deg, rgba(13, 17, 28, 0.9) 0%, rgba(10, 14, 24, 0.95) 100%)',
+            border: '1px solid rgba(59, 130, 246, 0.2)',
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '1.75rem',
+            boxShadow: '0 15px 35px -10px rgba(0, 0, 0, 0.6), 0 0 30px -10px rgba(37, 99, 235, 0.15)'
+          }}
+        >
+          {/* Left Column: Heading & Copy */}
+          <div style={{ maxWidth: '540px' }}>
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.45rem',
+                fontSize: '0.6875rem',
+                fontFamily: 'var(--font-mono)',
+                fontWeight: 700,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                color: 'var(--accent-light)',
+                background: 'rgba(59, 130, 246, 0.12)',
+                border: '1px solid rgba(59, 130, 246, 0.3)',
+                padding: '0.25rem 0.65rem',
+                borderRadius: 'var(--radius-full)',
+                marginBottom: '0.85rem'
+              }}
+            >
+              <span
+                style={{
+                  width: 6,
+                  height: 6,
+                  borderRadius: '50%',
+                  backgroundColor: 'var(--accent-cyan)',
+                  boxShadow: '0 0 8px var(--accent-cyan)',
+                  display: 'inline-block'
+                }}
+              />
+              <span>ALSO EXPLORING</span>
+            </div>
+
+            <h3
+              style={{
+                fontSize: 'clamp(1.2rem, 2vw, 1.45rem)',
+                fontWeight: 800,
+                color: '#ffffff',
+                letterSpacing: '-0.015em',
+                marginBottom: '0.35rem'
+              }}
+            >
+              Always learning. Always building.
+            </h3>
+
+            <p
+              style={{
+                fontSize: '0.875rem',
+                color: 'var(--text-muted)',
+                lineHeight: 1.55,
+                margin: 0
+              }}
+            >
+              Technologies and tools I’m currently exploring beyond my core stack.
+            </p>
+          </div>
+
+          {/* Right Column: Exploration Pills */}
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '0.75rem',
+              alignItems: 'center'
+            }}
+          >
+            {[
+              { name: 'Python', icon: Code2, color: '#38bdf8' },
+              { name: 'Git & GitHub', icon: GitBranch, color: '#a855f7' },
+              { name: 'AI Tools', icon: Sparkles, color: '#34d399' }
+            ].map((tech) => (
+              <motion.div
+                key={tech.name}
+                whileHover={{ y: -3, scale: 1.03, borderColor: 'rgba(59, 130, 246, 0.5)' }}
+                transition={{ duration: 0.2 }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.6rem',
+                  padding: '0.65rem 1.25rem',
+                  background: 'rgba(255, 255, 255, 0.04)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: 'var(--radius-full)',
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)',
+                  backdropFilter: 'blur(8px)',
+                  cursor: 'default'
+                }}
+              >
+                <tech.icon size={15} style={{ color: tech.color }} />
+                <span
+                  style={{
+                    fontSize: '0.875rem',
+                    fontFamily: 'var(--font-mono)',
+                    fontWeight: 700,
+                    color: '#ffffff',
+                    letterSpacing: '0.02em'
+                  }}
+                >
+                  {tech.name}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
 
       <style>{`

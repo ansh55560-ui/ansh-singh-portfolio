@@ -1,136 +1,227 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, Github, CheckCircle2, Server, Database, Code2, Sparkles, Cpu, Layers } from 'lucide-react';
 
 export const ProjectModal = ({ isOpen, onClose, project, index }) => {
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   if (!project) return null;
 
   const isRealLiveLink = project.liveUrl && !project.liveUrl.includes('PROJECT_LIVE_URL');
   const isRealGithubLink = project.githubUrl && !project.githubUrl.includes('PROJECT_GITHUB_URL');
 
-  return (
+  const modalContent = (
     <AnimatePresence>
       {isOpen && (
         <div
+          id="project-modal-backdrop"
           style={{
             position: 'fixed',
-            inset: 0,
-            zIndex: 1000,
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            width: '100vw',
+            height: '100vh',
+            zIndex: 99999,
+            overflowY: 'auto',
             display: 'flex',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             justifyContent: 'center',
-            padding: '1.25rem'
+            padding: '5.5rem 1.25rem 4rem 1.25rem',
+            overscrollBehavior: 'contain',
+            backgroundColor: 'rgba(5, 7, 12, 0.92)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)'
+          }}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) onClose();
           }}
         >
-          {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-            style={{
-              position: 'absolute',
-              inset: 0,
-              backgroundColor: 'rgba(5, 7, 12, 0.85)',
-              backdropFilter: 'blur(12px)'
-            }}
-          />
 
           {/* Modal Dialog Card */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.93, y: 25 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.93, y: 25 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            onClick={(e) => e.stopPropagation()}
             style={{
               position: 'relative',
               width: '100%',
               maxWidth: '740px',
-              maxHeight: '90vh',
-              overflowY: 'auto',
-              background: '#0e111a',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              borderRadius: 'var(--radius-lg)',
+              margin: '0 auto',
+              background: '#0d111c',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              borderRadius: '20px',
               padding: 'clamp(1.5rem, 4vw, 2.5rem)',
-              boxShadow: '0 30px 70px -15px rgba(0, 0, 0, 0.9), 0 0 50px -10px rgba(99, 102, 241, 0.3)',
+              boxShadow: '0 30px 80px -15px rgba(0, 0, 0, 0.95), 0 0 50px -10px rgba(99, 102, 241, 0.3)',
               zIndex: 10
             }}
           >
-            {/* Close Button */}
-            <button
-              onClick={onClose}
+            {/* Top Bar: Badges + High Contrast Close Button */}
+            <div
               style={{
-                position: 'absolute',
-                top: '1.25rem',
-                right: '1.25rem',
-                width: 36,
-                height: 36,
-                borderRadius: '50%',
-                background: 'rgba(255, 255, 255, 0.06)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#ffffff',
-                cursor: 'pointer',
-                transition: 'background 0.2s'
+                alignItems: 'flex-start',
+                justifyContent: 'space-between',
+                gap: '1rem',
+                marginBottom: '1rem'
               }}
-              aria-label="Close modal"
             >
-              <X size={18} />
-            </button>
-
-            {/* Header */}
-            <div style={{ marginBottom: '1.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
+              {/* Badges */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem' }}>
                 <span
                   style={{
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.75rem',
                     color: project.badgeColor || 'var(--accent-primary)',
                     fontWeight: 700,
-                    background: 'rgba(99, 102, 241, 0.12)',
-                    padding: '0.2rem 0.5rem',
+                    background: 'rgba(99, 102, 241, 0.16)',
+                    border: '1px solid rgba(99, 102, 241, 0.35)',
+                    padding: '0.25rem 0.6rem',
                     borderRadius: 'var(--radius-sm)'
                   }}
                 >
                   PROJECT {project.number}
                 </span>
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>
+                <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontFamily: 'var(--font-mono)' }}>
                   {project.category}
                 </span>
                 <span
                   style={{
                     fontSize: '0.7rem',
                     fontFamily: 'var(--font-mono)',
-                    color: project.status === 'Live Website' ? '#34d399' : '#f59e0b',
-                    padding: '0.1rem 0.4rem',
+                    fontWeight: 700,
+                    color: project.status === 'Live Website' ? '#34d399' : '#60a5fa',
+                    padding: '0.2rem 0.55rem',
                     borderRadius: 'var(--radius-sm)',
-                    background: 'rgba(255, 255, 255, 0.04)'
+                    background: project.status === 'Live Website' ? 'rgba(16, 185, 129, 0.15)' : 'rgba(59, 130, 246, 0.15)',
+                    border: `1px solid ${project.status === 'Live Website' ? 'rgba(16, 185, 129, 0.35)' : 'rgba(59, 130, 246, 0.35)'}`
                   }}
                 >
-                  ● {project.status}
+                  ● {project.primaryStatus || (project.status === 'Live Website' ? 'LIVE' : 'ONGOING')}
                 </span>
+                {project.secondaryStatus && (
+                  <span
+                    style={{
+                      fontSize: '0.7rem',
+                      fontFamily: 'var(--font-mono)',
+                      fontWeight: 600,
+                      color: '#38bdf8',
+                      padding: '0.2rem 0.55rem',
+                      borderRadius: 'var(--radius-sm)',
+                      background: 'rgba(56, 189, 248, 0.12)',
+                      border: '1px solid rgba(56, 189, 248, 0.3)'
+                    }}
+                  >
+                    {project.secondaryStatus}
+                  </span>
+                )}
               </div>
 
-              <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 800, color: '#ffffff', marginBottom: '0.4rem' }}>
+              {/* Close Button */}
+              <button
+                onClick={onClose}
+                style={{
+                  width: 38,
+                  height: 38,
+                  minWidth: 38,
+                  minHeight: 38,
+                  borderRadius: '50%',
+                  background: 'rgba(255, 255, 255, 0.12)',
+                  border: '1px solid rgba(255, 255, 255, 0.25)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#ffffff',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  flexShrink: 0,
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#ef4444';
+                  e.currentTarget.style.borderColor = '#ef4444';
+                  e.currentTarget.style.transform = 'scale(1.1)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.12)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.25)';
+                  e.currentTarget.style.transform = 'scale(1)';
+                }}
+                aria-label="Close modal"
+                title="Close (Esc)"
+              >
+                <X size={20} strokeWidth={2.5} />
+              </button>
+            </div>
+
+            {/* Title & Type */}
+            <div style={{ marginBottom: '1.5rem' }}>
+              <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 800, color: '#ffffff', marginBottom: '0.35rem', letterSpacing: '-0.02em' }}>
                 {project.title}
               </h2>
-              <p style={{ color: project.badgeColor || 'var(--accent-primary)', fontSize: '0.9375rem', fontWeight: 600 }}>
+              <p style={{ color: project.badgeColor || 'var(--accent-primary)', fontSize: '0.95rem', fontWeight: 600 }}>
                 {project.type}
               </p>
             </div>
+
+            {/* Project Image Banner if available */}
+            {project.imageUrl && (
+              <div
+                style={{
+                  marginBottom: '1.75rem',
+                  borderRadius: 'var(--radius-md)',
+                  overflow: 'hidden',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  background:
+                    project.id === 'metals-mantra'
+                      ? 'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)'
+                      : project.id === 'tathshri'
+                      ? 'linear-gradient(135deg, #ffffff 0%, #faf5ff 100%)'
+                      : project.id === 'shopatbms'
+                      ? 'linear-gradient(135deg, #88131b 0%, #b91c1c 100%)'
+                      : 'rgba(255, 255, 255, 0.04)',
+                  padding: '1.25rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  maxHeight: '180px'
+                }}
+              >
+                <img
+                  src={project.imageUrl}
+                  alt={project.title}
+                  style={{
+                    maxHeight: '140px',
+                    maxWidth: '100%',
+                    objectFit: 'contain'
+                  }}
+                />
+              </div>
+            )}
 
             {/* Architecture Statement */}
             {project.architecture && (
@@ -256,11 +347,11 @@ export const ProjectModal = ({ isOpen, onClose, project, index }) => {
                 <a
                   href={project.liveUrl}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="btn-primary"
                   style={{ fontSize: '0.875rem' }}
                 >
-                  <span>Visit Metals Mantra Live</span>
+                  <span>Visit {project.title} Live</span>
                   <ExternalLink size={16} />
                 </a>
               )}
@@ -278,4 +369,7 @@ export const ProjectModal = ({ isOpen, onClose, project, index }) => {
       )}
     </AnimatePresence>
   );
+
+  if (typeof document === 'undefined') return null;
+  return createPortal(modalContent, document.body);
 };

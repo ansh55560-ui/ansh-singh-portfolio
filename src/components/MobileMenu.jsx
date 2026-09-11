@@ -120,7 +120,7 @@ export const MobileMenu = ({ isOpen, onClose, navItems, activeSection, onSelect 
               <a
                 href={socials.github}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 style={{
                   width: 44,
                   height: 44,
@@ -140,7 +140,7 @@ export const MobileMenu = ({ isOpen, onClose, navItems, activeSection, onSelect 
               <a
                 href={socials.linkedin}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 style={{
                   width: 44,
                   height: 44,

@@ -13,6 +13,7 @@ import { MetricsSection } from './sections/MetricsSection';
 import { EducationSection } from './sections/EducationSection';
 import { ContactSection } from './sections/ContactSection';
 import { Footer } from './sections/Footer';
+import { AIChat } from './components/AIChat/AIChat';
 
 export function App() {
   return (
@@ -41,6 +42,9 @@ export function App() {
       {/* Footer & Floating Navigation */}
       <Footer />
       <BackToTop />
+
+      {/* Floating AI Chat Assistant */}
+      <AIChat />
     </div>
   );
 }
