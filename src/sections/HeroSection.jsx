@@ -602,7 +602,7 @@ export const HeroSection = () => {
                   <div>
                     <span style={{ color: '#38bdf8', fontWeight: 700 }}>$ whoami</span>
                     <div style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.78rem' }}>Ansh Singh</div>
-                    <div style={{ color: '#94a3b8' }}>Full Stack PHP Developer</div>
+                    <div style={{ color: '#94a3b8' }}>Full Stack Developer</div>
                   </div>
 
                   <div style={{ marginTop: '0.4rem' }}>

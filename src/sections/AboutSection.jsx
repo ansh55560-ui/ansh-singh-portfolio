@@ -61,7 +61,7 @@ export const AboutSection = () => {
           {/* Left: Detailed Bio & Resume Button */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <p style={{ fontSize: '0.9375rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>
-              Full Stack PHP Developer with <strong style={{ color: '#ffffff' }}>1 year of professional experience</strong> at Clock Softwares, following a 3-month internship, specializing in developing web applications and e-commerce platforms.
+              Full Stack Developer with <strong style={{ color: '#ffffff' }}>1 year of professional experience</strong> at Clock Softwares, following a 3-month internship, specializing in developing web applications and e-commerce platforms.
             </p>
 
             <p style={{ fontSize: '0.9375rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>

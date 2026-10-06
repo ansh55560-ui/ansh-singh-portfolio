@@ -1,6 +1,6 @@
 export const profile = {
   name: "Ansh Singh",
-  role: "Full Stack PHP Developer",
+  role: "Full Stack Developer",
   headline: "Building scalable web applications, e-commerce platforms, CMS solutions, and modern React experiences.",
   availabilityStatus: "Available for Opportunities",
   isAvailable: true,
@@ -12,7 +12,7 @@ export const profile = {
   github: "https://github.com/ansh55560-ui",
   resumeUrl: "/Ansh_Singh_Resume.pdf",
   about: {
-    lead: "Full Stack PHP Developer with professional experience developing scalable web applications, custom CMS architectures, and robust e-commerce platforms.",
+    lead: "Full Stack Developer with professional experience developing scalable web applications, custom CMS architectures, and robust e-commerce platforms.",
     details: "Experienced across the complete software development lifecycle—from client requirement gathering and database schema design to backend MVC architecture, REST API development, payment gateway integration, and responsive frontend implementation.",
     clientWork: "Delivered live client projects across event management and e-commerce domains, working directly with stakeholders to convert business requirements into production-ready software.",
     specializations: [

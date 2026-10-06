@@ -108,7 +108,7 @@ class AIService {
       query.includes('role')
     ) {
       return {
-        text: `**Ansh Singh** is a **Full Stack PHP Developer** based in **Thane, Maharashtra, India**.\n\nHe has **1 year of professional experience** at Clock Softwares (following a 3-month internship), specializing in building scalable web applications, custom CMS architectures, REST APIs, and e-commerce platforms with PHP, MySQL, JavaScript, and modern React experiences.`,
+        text: `**Ansh Singh** is a **Full Stack Developer** based in **Thane, Maharashtra, India**.\n\nHe has **1 year of professional experience** at Clock Softwares (following a 3-month internship), specializing in building scalable web applications, custom CMS architectures, REST APIs, and e-commerce platforms with PHP, MySQL, JavaScript, and modern React experiences.`,
         quickLinks: [
           { label: "View Experience", action: "experience" },
           { label: "Explore Projects", action: "projects" }
@@ -126,7 +126,7 @@ class AIService {
       query.includes('work history')
     ) {
       return {
-        text: `Ansh has **1 year of professional experience** as a Full Stack PHP Developer at **Clock Softwares** (November 2025 – Present), preceded by an intensive **3-month web development internship** at the same company.\n\n**Key responsibilities & accomplishments:**\n• Engineered scalable web applications & dynamic admin CMS dashboards.\n• Built end-to-end e-commerce features with cart, wishlist, coupon, and checkout pipelines.\n• Integrated Razorpay payment gateways and multi-channel SMS/Email OTP authentication.\n• Developed clean MVC architectures and optimized relational MySQL queries.`,
+        text: `Ansh has **1 year of professional experience** as a Full Stack Developer at **Clock Softwares** (November 2025 – Present), preceded by an intensive **3-month web development internship** at the same company.\n\n**Key responsibilities & accomplishments:**\n• Engineered scalable web applications & dynamic admin CMS dashboards.\n• Built end-to-end e-commerce features with cart, wishlist, coupon, and checkout pipelines.\n• Integrated Razorpay payment gateways and multi-channel SMS/Email OTP authentication.\n• Developed clean MVC architectures and optimized relational MySQL queries.`,
         quickLinks: [
           { label: "View Selected Work", action: "projects" },
           { label: "Download Resume", url: this.knowledge.contact.resumeUrl, external: true }

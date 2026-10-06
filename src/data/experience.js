@@ -2,7 +2,7 @@ export const experiences = [
   {
     period: "November 2025 — Present",
     duration: "1 Year",
-    role: "Full Stack PHP Developer",
+    role: "Full Stack Developer",
     company: "Clock Softwares",
     type: "Professional Experience",
     badge: "Full-Time Role",

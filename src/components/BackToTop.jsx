@@ -58,6 +58,16 @@ export const BackToTop = () => {
           aria-label="Scroll back to top"
         >
           <ArrowUp size={18} />
+          <style>{`
+            @media (max-width: 640px) {
+              #back-to-top-btn {
+                bottom: 130px !important;
+                right: 18px !important;
+                width: 38px !important;
+                height: 38px !important;
+              }
+            }
+          `}</style>
         </motion.button>
       )}
     </AnimatePresence>

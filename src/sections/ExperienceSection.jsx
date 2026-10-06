@@ -53,7 +53,7 @@ export const ExperienceSection = () => {
               }}
             />
 
-            {/* Role 1: Full Stack PHP Developer */}
+            {/* Role 1: Full Stack Developer */}
             <div style={{ display: 'flex', gap: '1rem', position: 'relative', zIndex: 1 }}>
               <div
                 style={{

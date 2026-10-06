@@ -86,7 +86,7 @@ export const AIChatButton = ({ isOpen, onClick }) => {
       <style>{`
         @media (max-width: 640px) {
           #ai-chat-floating-trigger {
-            bottom: 16px !important;
+            bottom: 75px !important;
             right: 16px !important;
             padding: 0.65rem 1rem !important;
             font-size: 0.8125rem !important;

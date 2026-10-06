@@ -187,6 +187,11 @@ export const Footer = () => {
           background: rgba(56, 189, 248, 0.1) !important;
           transform: translateY(-2px);
         }
+        @media (max-width: 640px) {
+          footer {
+            padding-bottom: 2.5rem !important;
+          }
+        }
       `}</style>
     </footer>
   );

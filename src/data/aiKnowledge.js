@@ -1,7 +1,7 @@
 export const aiKnowledge = {
   profile: {
     name: "Ansh Singh",
-    role: "Full Stack PHP Developer",
+    role: "Full Stack Developer",
     headline: "Building scalable web applications, e-commerce platforms, CMS solutions, and modern React experiences.",
     location: "Thane, Maharashtra, India",
     phone: "+91 90985 31316",
@@ -12,7 +12,7 @@ export const aiKnowledge = {
     availabilityStatus: "Available for Opportunities",
     isAvailable: true,
     experienceSummary: "1 year of professional experience at Clock Softwares preceded by a 3-month internship.",
-    bio: "Full Stack PHP Developer with professional experience developing scalable web applications, custom CMS architectures, and robust e-commerce platforms across the complete software development lifecycle."
+    bio: "Full Stack Developer with professional experience developing scalable web applications, custom CMS architectures, and robust e-commerce platforms across the complete software development lifecycle."
   },
 
   experience: {
@@ -20,7 +20,7 @@ export const aiKnowledge = {
     company: "Clock Softwares",
     roles: [
       {
-        role: "Full Stack PHP Developer",
+        role: "Full Stack Developer",
         period: "November 2025 — Present",
         duration: "1 Year",
         company: "Clock Softwares",
