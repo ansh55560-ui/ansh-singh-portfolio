@@ -30,12 +30,8 @@ export const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Honeypot check: If bot filled the hidden website field, silently succeed without processing
-    if (formData.website) {
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '', website: '' });
-      return;
-    }
+    // Honeypot check: bots should be ignored without revealing the spam filter.
+    if (formData.website) return;
 
     // Rate limiting cooldown (5 seconds between submissions)
     const now = Date.now();
@@ -68,7 +64,11 @@ export const ContactForm = () => {
     setLastSubmittedAt(now);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const subject = `Portfolio enquiry from ${trimmedName}`;
+      const body = `Name: ${trimmedName}\nEmail: ${trimmedEmail}\n\nMessage:\n${trimmedMessage}`;
+      const mailtoUrl = `mailto:ansh55560@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      window.location.href = mailtoUrl;
 
       try {
         confetti({
@@ -82,7 +82,7 @@ export const ContactForm = () => {
       setFormData({ name: '', email: '', message: '', website: '' });
     } catch (error) {
       setStatus('error');
-      setErrorMessage('Something went wrong. Please try emailing directly.');
+      setErrorMessage('Unable to open your email client. Please email Ansh directly.');
     }
   };
 
@@ -211,10 +211,10 @@ export const ContactForm = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 700 }}>
             <Check size={14} />
-            <span>Message Sent Successfully!</span>
+            <span>Email Draft Ready</span>
           </div>
           <span style={{ fontSize: '0.6875rem', color: 'rgba(255, 255, 255, 0.65)' }}>
-            Thank you for reaching out! (Frontend demo state).
+            Your email app should now open with the message pre-filled. Please review and send it.
           </span>
         </motion.div>
       )}
@@ -235,12 +235,12 @@ export const ContactForm = () => {
         {status === 'submitting' ? (
           <>
             <Loader2 size={16} className="animate-spin" />
-            <span>SENDING...</span>
+            <span>OPENING EMAIL...</span>
           </>
         ) : status === 'success' ? (
           <>
             <Check size={16} />
-            <span>MESSAGE SENT ✓</span>
+            <span>EMAIL DRAFT READY ✓</span>
           </>
         ) : (
           <>
