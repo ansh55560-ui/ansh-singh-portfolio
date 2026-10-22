@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="title desc">
+<title id="title">Ansh Singh — Full Stack PHP Developer</title><desc id="desc">A midnight blue glass-inspired banner with cyan and violet light accents.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#07101f"/><stop offset="55%" stop-color="#111c36"/><stop offset="100%" stop-color="#1b1740"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#c7f5ff" stop-opacity=".15"/><stop offset="100%" stop-color="#8a8cff" stop-opacity=".035"/></linearGradient>
+<linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#67e6ff"/><stop offset="100%" stop-color="#a99bff"/></linearGradient>
+<radialGradient id="glowA"><stop offset="0%" stop-color="#1fceff" stop-opacity=".28"/><stop offset="100%" stop-color="#1fceff" stop-opacity="0"/></radialGradient>
+<radialGradient id="glowB"><stop offset="0%" stop-color="#9e77ff" stop-opacity=".24"/><stop offset="100%" stop-color="#9e77ff" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1200" height="340" rx="26" fill="url(#bg)"/><ellipse cx="250" cy="40" rx="360" ry="200" fill="url(#glowA)"/><ellipse cx="1040" cy="320" rx="390" ry="250" fill="url(#glowB)"/>
+<g opacity=".15" stroke="#86cbff" stroke-width="1"><path d="M0 66H1200M0 132H1200M0 198H1200M0 264H1200"/><path d="M120 0V340M240 0V340M360 0V340M480 0V340M600 0V340M720 0V340M840 0V340M960 0V340M1080 0V340"/></g>
+<rect x="54" y="42" width="1092" height="256" rx="24" fill="url(#glass)" stroke="url(#edge)" stroke-opacity=".65"/><rect x="76" y="64" width="8" height="212" rx="4" fill="url(#edge)"/>
+<circle cx="1080" cy="86" r="6" fill="#75ecff"/><circle cx="1102" cy="86" r="6" fill="#b7a7ff"/><circle cx="1124" cy="86" r="6" fill="#75e2b5"/>
+<text x="112" y="126" fill="#9defff" font-family="Segoe UI,Arial,sans-serif" font-size="17" letter-spacing="4">FULL STACK DEVELOPER</text>
+<text x="108" y="184" fill="#f2f7ff" font-family="Segoe UI,Arial,sans-serif" font-size="47" font-weight="700">ANSH SINGH</text>
+<text x="112" y="222" fill="#c8d7f2" font-family="Segoe UI,Arial,sans-serif" font-size="21">PHP • MySQL • JavaScript • React • REST APIs</text>
+<text x="112" y="258" fill="#91a9cb" font-family="Segoe UI,Arial,sans-serif" font-size="15" letter-spacing="1">BUILDING PRACTICAL, RESPONSIVE WEB EXPERIENCES</text>
+<g transform="translate(950 145)" fill="none" stroke="url(#edge)" stroke-width="2"><rect x="-40" y="-28" width="90" height="68" rx="12" fill="#101e38" fill-opacity=".65"/><path d="M-10 -4L-24 6L-10 16M20 -4L34 6L20 16M8 -10L1 22"/><rect x="-64" y="-52" width="138" height="116" rx="20" stroke-opacity=".36"/></g></svg>
