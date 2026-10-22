@@ -1,0 +1,31 @@
+{
+  "name": "futuristic-glass-ui",
+  "displayName": "Futuristic Glass UI",
+  "description": "A glass-inspired midnight VS Code theme with luminous cyan, cool blue and violet syntax accents.",
+  "version": "1.0.0",
+  "publisher": "anshsingh",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark theme",
+    "glassmorphism",
+    "cyber blue",
+    "php",
+    "javascript"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Futuristic Glass UI",
+        "uiTheme": "vs-dark",
+        "path": "./themes/futuristic-glass-ui-color-theme.json"
+      }
+    ]
+  }
+}
